@@ -35,12 +35,13 @@ Para rodar os projetos locais, siga as etapas abaixo:
 
 2. Acesse o diretório do projeto:
    ```bash
-   cd webdev-25-ucb
+   cd .\webdev-25-ucb\
+   cd .\atividade{x}\
    ```
 
 3. Execute o comando:
    ```bash
-   node index.js
+   node .\{nomeDoArquivo}.js
    ```
 
 ## Licença
