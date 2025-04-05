@@ -23,7 +23,7 @@ app.get('/listar', (req, res) => {
     if (list.length === 0) {
         res.send("Nenhum produto cadastrado...");
     } else {
-        let textoLista = list.map(produto => `Produto: ${produto.nome}, Quantidade: ${produto.qtd}`).join("; ");
+        let textoLista = list.map(produto => `ID: ${produto.id}, Produto: ${produto.nome}, Quantidade: ${produto.qtd}`).join("; ");
         res.send(textoLista);
     }
 });
