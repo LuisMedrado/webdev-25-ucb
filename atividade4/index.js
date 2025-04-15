@@ -6,17 +6,29 @@ app.get('/', (req, res)=> {
     res.send('Olá! Faça uma lista de compras da seguinte forma: na URL, em frente ao "8080", digite uma das seguintes operações: adicionar, listar, remover e editar.')
 })
 
+var produto_erro = false
+
 const list = []
 
 app.get('/adicionar/:id/:nome/:qtd', (req, res) => { 
     const produto = {
-        id: req.params.id,
+        id: Number(req.params.id),
         nome: req.params.nome,
-        qtd: req.params.qtd
+        qtd: Number(req.params.qtd)
     };
 
-    list.push(produto);
-    res.send("Produto adicionado com sucesso!!");
+    list.forEach(item => {
+        if(item.id == produto.id) {
+            produto_erro = true;
+        }
+    })
+
+    if (produto_erro == true) {
+        res.send("Erro: valores inválidos!")
+    } else {
+        list.push(produto);
+        res.send("Produto adicionado com sucesso!!");
+    }
 });
 
 app.get('/listar', (req, res) => {
@@ -29,7 +41,7 @@ app.get('/listar', (req, res) => {
 });
 
 app.get('/remover/:id', (req, res) => {
-    const id = req.params.id;
+    const id = Number(req.params.id);
 
     const index = list.findIndex(produto => produto.id === id);
 
@@ -42,8 +54,8 @@ app.get('/remover/:id', (req, res) => {
 });
 
 app.get('/editar/:id/:qtd', (req, res) => {
-    const id = req.params.id;
-    const novaQtd = req.params.qtd;
+    const id = Number(req.params.id);
+    const novaQtd = Number(req.params.qtd);
 
     const index = list.findIndex(produto => produto.id === id);
 
