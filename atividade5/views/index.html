@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 5</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 text-center p-5">
+                <h1>Agendamento</h1>
+            </div>
+            <div class="col-12">
+                <h2>Dados do paciente</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 pt-5">
+                <h3>Nome</h3>
+                <input class="form-control" id="name" placeholder="Insira seu nome">
+            </div>
+            <div class="col-6 pt-5">
+                <h3>Sobrenome</h3>
+                <input class="form-control" id="surname" placeholder="Insira seu sobrenome">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 pt-5">
+                <h3>CPF</h3>
+                <input class="form-control" id="cpf" placeholder="Insira seu CPF">
+            </div>
+            <div class="col-6 pt-5">
+                <h3>Data de nascimento</h3>
+                <input type="date" class="form-control" id="bornIn">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 pt-5">
+                <h3>Telefone</h3>
+                <input type="number" class="form-control" id="tel" placeholder="Insira seu telefone">
+            </div>
+            <div class="col-6 pt-5">
+                <h3>CEP</h3>
+                <input type="number" class="form-control" id="bornIn" placeholder="Insira seu CEP">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 pt-5">
+                <h3>Endereço</h3>
+                <input type="text" class="form-control" id="endereco" placeholder="Insira seu endereço">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row pt-5">
+            <div class="col-12 pt-3">
+                <h2>Dados da consulta</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 pt-5">
+                <h3>Clínica</h3>
+                <select name="clinica" id="clinica" class="form-control">
+                    <option>Selecione</option>
+                    <option>Clinica ABC</option>
+                    <option>Clinica DEF</option>
+                    <option>Clinica 123</option>
+                    <option>Clinica 456</option>
+                </select>
+            </div>
+
+            <div class="col-6 pt-5">
+                <h3>Especialidade</h3>
+                <select name="especialidade" id="especialidade" class="form-control">
+                    <option>Selecione</option>
+                    <option>Especialidade ABC</option>
+                    <option>Especialidade DEF</option>
+                    <option>Especialidade 123</option>
+                    <option>Especialidade 456</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 pt-5">
+                <h3>Data</h3>
+                <input type="date" class="form-control" id="dataConsulta" placeholder="Insira a data da consulta">
+            </div>
+
+            <div class="col-6 pt-5">
+                <h3>Hora</h3>
+                <input type="time" class="form-control" id="horaConsulta" placeholder="Insira o horário da consulta">
+            </div>
+
+            <div class="col-12 pt-5">
+                <h3>Observações</h3>
+                <textarea name="obs" id="obs" class="form-control" rows="6" placeholder="Alguma observação?"></textarea>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3 pt-5">
+                    <button onClick="window.location.reload();" type="submit" class="btn btn-primary w-100">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
