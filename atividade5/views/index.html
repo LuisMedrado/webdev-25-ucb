@@ -16,6 +16,21 @@
     </script>
 </head>
 <body>
+    <div class="container pt-4">
+        {{#erro}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{erro}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/erro}}
+
+        {{#sucesso}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{sucesso}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/sucesso}}
+    </div>
     <form action="/agendar_consulta" method="POST">
         <div class="container">
             
@@ -31,40 +46,40 @@
             <div class="row">
                 <div class="col-6 pt-5">
                     <h3>Nome</h3>
-                    <input class="form-control" id="name" name="name" placeholder="Insira seu nome">
+                    <input class="form-control" id="name" name="name" placeholder="Insira seu nome" value="{{formData.name}}">
                 </div>
                 <div class="col-6 pt-5">
                     <h3>Sobrenome</h3>
-                    <input class="form-control" id="surname" name="surname" placeholder="Insira seu sobrenome">
+                    <input class="form-control" id="surname" name="surname" placeholder="Insira seu sobrenome" value="{{formData.surname}}">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6 pt-5">
                     <h3>CPF</h3>
-                    <input class="form-control" id="cpf" name="cpf" placeholder="Insira seu CPF">
+                    <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Insira seu CPF" value="{{formData.cpf}}">
                 </div>
                 <div class="col-6 pt-5">
                     <h3>Data de nascimento</h3>
-                    <input type="date" class="form-control" id="bornIn" name="bornIn">
+                    <input type="date" class="form-control" id="bornIn" name="bornIn" value="{{formData.bornIn}}">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6 pt-5">
                     <h3>Telefone</h3>
-                    <input type="number" class="form-control" id="tel" name="tel" placeholder="Insira seu telefone">
+                    <input type="number" class="form-control" id="tel" name="tel" placeholder="Insira seu telefone" value="{{formData.tel}}">
                 </div>
                 <div class="col-6 pt-5">
                     <h3>CEP</h3>
-                    <input type="number" class="form-control" id="cep" name="cep" placeholder="Insira seu CEP">
+                    <input type="number" class="form-control" id="cep" name="cep" placeholder="Insira seu CEP" value="{{formData.cep}}">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 pt-5">
                     <h3>Endereço</h3>
-                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Insira seu endereço">
+                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Insira seu endereço" value="{{formData.endereco}}">
                 </div>
             </div>
 
@@ -101,12 +116,12 @@
             <div class="row">
                 <div class="col-6 pt-5">
                     <h3>Data</h3>
-                    <input type="date" class="form-control" id="dataConsulta" name="dataConsulta" placeholder="Insira a data da consulta">
+                    <input type="date" class="form-control" id="dataConsulta" name="dataConsulta" placeholder="Insira a data da consulta" value="{{formData.dataConsulta}}">
                 </div>
 
                 <div class="col-6 pt-5">
                     <h3>Hora</h3>
-                    <input type="time" class="form-control" id="horaConsulta" name="horaConsulta" placeholder="Insira o horário da consulta">
+                    <input type="time" class="form-control" id="horaConsulta" name="horaConsulta" placeholder="Insira o horário da consulta" value="{{formData.horaConsulta}}">
                 </div>
 
                 <div class="col-12 pt-5">
