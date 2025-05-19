@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/agendar_consulta', (req, res) => {
-    const camposObrigatorios = [
+    const camposObr = [
         'name',
         'surname',
         'cpf',
@@ -31,30 +31,27 @@ app.post('/agendar_consulta', (req, res) => {
         'horaConsulta'
     ];
 
-    // Verifica campos vazios
-    for (const campo of camposObrigatorios) {
+    for (const campo of camposObr) {
         const valor = req.body[campo];
         if (!valor || valor.trim() === '' || valor === 'Selecione') {
             return res.render('index.html', {
-                erro: "Preencha todos os campos obrigatórios.",
+                erro: "Preencha todos os campos obrigatórios!",
                 formData: req.body
             });
         }
     }
 
-    // Verifica se data da consulta é no futuro
     const dataConsulta = new Date(req.body.dataConsulta);
     const hoje = new Date();
-    hoje.setHours(0, 0, 0, 0); // Zera a hora
+    hoje.setHours(0, 0, 0, 0);
 
     if (dataConsulta <= hoje) {
         return res.render('index.html', {
-            erro: "A data da consulta deve ser posterior à data atual.",
+            erro: "A data da consulta deve ser superior à data atual!",
             formData: req.body
         });
     }
 
-    // Sucesso
     console.log("Agendamento recebido:", req.body);
     res.render('index.html', {
         sucesso: "Agendamento realizado com sucesso!",
