@@ -7,54 +7,60 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.urlencoded({ extended: true }));
 
+const agendamentoRouter = require('./routers/agendamentoRouter')
+
+app.use('/', agendamentoRouter)
+
 const PORT = 8080;
 app.listen(PORT, () => {
     console.log("Rodou na porta " + PORT);
 });
 
-app.get('/', (req, res) => {
-    res.render('index.html', { erro: null, formData: {} });
-});
+// ######################### DEPRECATED #########################
 
-app.post('/agendar_consulta', (req, res) => {
-    const camposObr = [
-        'name',
-        'surname',
-        'cpf',
-        'bornIn',
-        'tel',
-        'cep',
-        'endereco',
-        'clinica',
-        'especialidade',
-        'dataConsulta',
-        'horaConsulta'
-    ];
+// app.get('/', (req, res) => {
+//     res.render('index.html', { erro: null, formData: {} });
+// });
 
-    for (const campo of camposObr) {
-        const valor = req.body[campo];
-        if (!valor || valor.trim() === '' || valor === 'Selecione') {
-            return res.render('index.html', {
-                erro: "Preencha todos os campos obrigatórios!",
-                formData: req.body
-            });
-        }
-    }
+// app.post('/agendar_consulta', (req, res) => {
+//     const camposObr = [
+//         'name',
+//         'surname',
+//         'cpf',
+//         'bornIn',
+//         'tel',
+//         'cep',
+//         'endereco',
+//         'clinica',
+//         'especialidade',
+//         'dataConsulta',
+//         'horaConsulta'
+//     ];
 
-    const dataConsulta = new Date(req.body.dataConsulta);
-    const hoje = new Date();
-    hoje.setHours(0, 0, 0, 0);
+//     for (const campo of camposObr) {
+//         const valor = req.body[campo];
+//         if (!valor || valor.trim() === '' || valor === 'Selecione') {
+//             return res.render('index.html', {
+//                 erro: "Preencha todos os campos obrigatórios!",
+//                 formData: req.body
+//             });
+//         }
+//     }
 
-    if (dataConsulta <= hoje) {
-        return res.render('index.html', {
-            erro: "A data da consulta deve ser superior à data atual!",
-            formData: req.body
-        });
-    }
+//     const dataConsulta = new Date(req.body.dataConsulta);
+//     const hoje = new Date();
+//     hoje.setHours(0, 0, 0, 0);
 
-    console.log("Agendamento recebido:", req.body);
-    res.render('index.html', {
-        sucesso: "Agendamento realizado com sucesso!",
-        formData: {}
-    });
-});
+//     if (dataConsulta <= hoje) {
+//         return res.render('index.html', {
+//             erro: "A data da consulta deve ser superior à data atual!",
+//             formData: req.body
+//         });
+//     }
+
+//     console.log("Agendamento recebido:", req.body);
+//     res.render('index.html', {
+//         sucesso: "Agendamento realizado com sucesso!",
+//         formData: {}
+//     });
+// });
